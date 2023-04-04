@@ -1,0 +1,9 @@
+---
+import Layout from '@layouts/Layout.astro';
+import type { Product } from '@prisma/client';
+
+const { guid } = Astro.params;
+---
+<Layout>
+  <h1>{guid}</h1>
+</Layout>
