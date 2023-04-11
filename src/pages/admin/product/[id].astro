@@ -1,0 +1,15 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { fetchJSON } from "@lib/api";
+import type { Product } from "@prisma/client";
+
+const { id } = Astro.params;
+const { product } = await fetchJSON<{ product: Product }>(
+  `/admin/product/${id}.json`
+);
+---
+
+<Layout>
+  <h1>{product.title}</h1>
+  <kbd>{product.guid}</kbd>
+</Layout>
